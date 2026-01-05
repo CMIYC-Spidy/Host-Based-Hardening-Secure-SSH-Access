@@ -1,12 +1,12 @@
-<h1> <a href="#"><b>Firewall & Security Hardening</b> Implementation</a></h1>
+<h1>SSH & System Security Hardening via Firewall</a></h1>
 
 <div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; border-left: 5px solid #007acc;">
   <strong>Tools Used:</strong>
   <ul>
-    <li>ufw</li>
-    <li>openssh-server</li>
-    <li>openssh-client</li>
-    <li>nmap</li>
+    <li><a href="https://help.ubuntu.com/community/UFW"> UFW (Uncomplicated Firewall)</li>
+    <li><a href="https://man.openbsd.org/sftp-server.8"> OpenSSH-Server</li>
+    <li><a href="https://man.openbsd.org/ssh.1"> OpenSSH-Client</li>
+    <li><a href="https://nmap.org/"> Nmap</li>
   </ul>
 </div>
 
