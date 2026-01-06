@@ -1,4 +1,4 @@
-<h1>SSH & System Security Hardening via Firewall</a></h1>
+<h1 align="center">SSH & System Security Hardening via Firewall</a></h1>
 
 <div style="background-color: #1e1e1e; padding: 15px; border-radius: 5px; border-left: 5px solid #007acc;">
   <strong>Tools Used:</strong>
