@@ -54,13 +54,144 @@ I implemented a Strict Egress Control policy. Unlike standard setups that allow 
 
 <h2>5. Program Walk-through</h2>
 
+- In this section, I will walk you through the manual execution of the hardening process. I began by configuring the SSH environment to secure remote access, followed by the systematic application of firewall rules to lock down both inbound and outbound traffic.
+<br />
+<h2 align="center"> Phase 1: ... </h2>
+<br />
+
 <p align="center">
-My Text: <br/>
-<img src="My Image"/>
+<br />
+To Be Written (TBW) <br/>
+<img width="626" height="244" alt="Screenshot 2026-01-07 205430" src="https://github.com/user-attachments/assets/242f24c8-20ad-4afb-8380-31c963c524bc" />
+
 <br />
 <br />
-My Text:  <br/>
-<img src="My Image"/>
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+<h2 align="center"> Phase 2: ... </h2>
+<br />
+<p align="center">
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+<h2 align="center"> Phase 3: ... </h2>
+<br />
+<p align="center">
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
+<br />
+<br />
+TBW <br/>
+
 <br />
 <br />
 
@@ -68,6 +199,15 @@ My Text:  <br/>
 
 
 
+
+
+<h1>6. Final Reflection</h1>
+
+Building this hardened environment provided me with a hands-on understanding of the "Zero Trust" model. My biggest takeaway was the shift from a standard inbound-only firewall mindset to a strict egress-control policy. By manually whitelisting only essential ports like DNS and APT, I learned how to significantly neutralize the threat of a system being used for data exfiltration or reaching out to malicious external servers.
+
+This project also reinforced my discipline in administrative auditing; by disabling direct root access, I ensured that every action I took left a clear trail via sudo. Overall, this process taught me that true system security is found in the details of restrictive configuration and the continuous validation of active rules.
+
+Thank you for taking the time to review my project and for your consideration of my work.
 
 <!--
  ```diff
