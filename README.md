@@ -56,154 +56,92 @@ I implemented a Strict Egress Control policy. Unlike standard setups that allow 
 
 - In this section, I will walk you through the manual execution of the hardening process. I began by configuring the SSH environment to secure remote access, followed by the systematic application of firewall rules to lock down both inbound and outbound traffic.
 <br />
-<h2 align="center"> Phase 1: ... </h2>
+<h2 align="center"> Phase 1: SSH Service Implementation and Initial Setup </h2>
 <br />
 
 <p align="center">
 <br />
-To Be Written (TBW) <br/>
+I started the process by updating the Ubuntu package repositories with the <code>sudo apt update -y</code> command. <br/>
 <img width="626" height="244" alt="Screenshot 2026-01-07 205430" src="https://github.com/user-attachments/assets/242f24c8-20ad-4afb-8380-31c963c524bc" />
+<br />
+<br />
+I installed the OpenSSH server using the <code>sudo apt install openssh-server -y</code> command. <br/>
 
 <br />
 <br />
-TBW <br/>
+I checked the status of the SSH server by running <code>sudo systemctl status ssh</code>. Since it was inactive, I activated and enabled it with the <code>sudo systemctl enable ssh</code> command. <br/>
 
 <br />
 <br />
-TBW <br/>
+After enabling the service, I ran the <code>ip add</code> command to identify my IP address for connectivity testing. <br/>
 
 <br />
 <br />
-TBW <br/>
+I verified the SSH server was functional by successfully establishing a remote connection. <br/>
 
 <br />
 <br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-<h2 align="center"> Phase 2: ... </h2>
+<h2 align="center"> Phase 2: The Uncomplicated Firewall (UFW) Setup </h2>
 <br />
 <p align="center">
 <br />
-TBW <br/>
+I installed the firewall service by running the <code>sudo apt install ufw</code> command. <br/>
 
 <br />
 <br />
-TBW <br/>
+I configured the firewall with a strict "Deny-by-Default" posture. I blocked all default incoming and outgoing traffic, and specifically denied SSH access to test the enforcement using these commands:
+<code>sudo ufw default deny incoming</code>
+<code>sudo ufw default deny outgoing</code>
+<code>sudo ufw deny ssh</code>
+<code>sudo ufw enable</code> <br/>
 
 <br />
 <br />
-TBW <br/>
+I tested the firewall by attempting to connect to my server. As expected, the connection timed out, confirming the rules were working. <br/>
 
 <br />
 <br />
-TBW <br/>
+Now I allowed ssh via <code>sudo ufw allow ssh</code>  <br/>
 
 <br />
 <br />
-TBW <br/>
+I then restored access by allowing SSH traffic via the <code>sudo ufw allow ssh</code> command. I tested again and confirmed I could connect successfully. <br/>
 
 <br />
 <br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-<h2 align="center"> Phase 3: ... </h2>
+<h2 align="center"> Phase 3: Configuring Essential Services </h2>
 <br />
 <p align="center">
 <br />
-TBW <br/>
+I attempted to install the "SL" utility, but the process stayed stuck and timed out. This confirmed that my default deny rules were successfully blocking all outgoing connections. <br/>
 
 <br />
 <br />
-TBW <br/>
+To allow necessary system functions, I whitelisted the specific ports required for repository communication and DNS resolution:
+<code>sudo ufw allow 80/tcp</code>
+<code>sudo ufw allow 443/tcp</code>
+<code>sudo ufw allow 53/tcp</code> <br/>
 
 <br />
 <br />
-TBW <br/>
+After updating these configurations, I tried to install the tool again with <code>sudo apt install sl</code>, and this time the installation was successful. <br/>
 
 <br />
 <br />
-TBW <br/>
+I ran the utility to confirm the installation was complete and the environment was stable. <br/>
 
 <br />
 <br />
-TBW <br/>
-
+<h2 align="center"> Phase 4: Final Validation and Audit </h2>
 <br />
+<p align="center">
 <br />
-TBW <br/>
-
+To conclude, I used <code>nmap -p [Desired Port(if-any)] [IP]</code> to perform a network scan on the machine, confirming that all firewall settings were correctly applied and only the intended ports were reachable. <br/>
 <br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-TBW <br/>
-
-<br />
-<br />
-
-
-
-
-
-
 
 <h1>6. Final Reflection</h1>
 
-Building this hardened environment provided me with a hands-on understanding of the "Zero Trust" model. My biggest takeaway was the shift from a standard inbound-only firewall mindset to a strict egress-control policy. By manually whitelisting only essential ports like DNS and APT, I learned how to significantly neutralize the threat of a system being used for data exfiltration or reaching out to malicious external servers.
+Building this hardened environment provided me with a hands-on understanding of the "Zero Trust" model. My biggest takeaway was the shift from a standard inbound-only firewall mindset to a strict egress-control policy. By manually whitelisting only essential ports like DNS and APT (Mirror Server), I learned how to significantly neutralize the threat of a system being used for data exfiltration or reaching out to malicious external servers.
 
 This project also reinforced my discipline in administrative auditing; by disabling direct root access, I ensured that every action I took left a clear trail via sudo. Overall, this process taught me that true system security is found in the details of restrictive configuration and the continuous validation of active rules.
 
